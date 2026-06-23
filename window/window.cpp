@@ -1,15 +1,13 @@
 #include "window.h"
 #include <iostream>
 
-Window::Window() {
-}
-
-Window::Window(/*int width, int height,*/ const char *name) {
+Window::Window(const char *name) {
     if (!glfwInit())
         throw std::runtime_error("Failed to init GLFW");
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_SAMPLES, 8);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     monitor = glfwGetPrimaryMonitor();
@@ -46,14 +44,10 @@ GLFWwindow *Window::get() const {
 }
 
 int Window::get_screen_width() const {
-    if (!mode)
-        return 0;
     return mode->width;
 }
 
 int Window::get_screen_height() const {
-    if (!mode)
-        return 0;
     return mode->height;
 }
 

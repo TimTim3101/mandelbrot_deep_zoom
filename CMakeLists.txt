@@ -11,8 +11,6 @@ add_executable(mandelbrot
 )
 
 target_compile_options(mandelbrot PRIVATE
-    -Wall
-    -Wextra
     -O3
 )
 

@@ -13,8 +13,7 @@ class Window {
 
   public:
     const GLFWvidmode *mode = nullptr;
-    Window(/*int width, int height, */ const char *name);
-    Window();
+    Window(const char *name);
     ~Window();
 
     GLFWwindow *get() const;
